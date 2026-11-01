@@ -64,6 +64,21 @@ interface RelatedRecordRepositoryInterface
     public function relatedBy($rhsType, $rhsId, $lhsType = null): array;
 
     /**
+     * Fetch all records related to one record in either direction (symmetric lookup).
+     *
+     * Returns records where the given record is either lhs (context) or rhs (related).
+     * Each result is normalized so the given record is always on the lhs side.
+     *
+     * @param string $type Record type key
+     * @param string|int $id Record primary key
+     * @param string|null $otherType Filter by the other record's type
+     * @return RelatedRecordDto[] Normalized with given record as lhs
+     * @throws \ksfraser\RelatedTo\Exception\RelatedRecordPersistenceException
+     * @since 1.0.0
+     */
+    public function relatedSymmetric($type, $id, $otherType = null): array;
+
+    /**
      * Check whether an association exists.
      *
      * @param string $lhsType
