@@ -3,7 +3,7 @@
     "description": "Framework-agnostic related-records core: DTOs, repository interface, exceptions, and UI renderer contracts",
     "type": "library",
     "license": "GPL-3.0",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "authors": [
         {
             "name": "Kevin Fraser",
