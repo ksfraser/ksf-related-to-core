@@ -13,6 +13,7 @@ use ksfraser\RelatedTo\DTO\RelatedRecordDto;
  * Implementations are platform-specific (FA native db_*, PDO, WordPress, etc.)
  * and are injected wherever related-record storage is needed.
  *
+ * @BABOK Related: BR-RT-002
  * @since 1.0.0
  */
 interface RelatedRecordRepositoryInterface
@@ -23,6 +24,7 @@ interface RelatedRecordRepositoryInterface
      * @param RelatedRecordDto $dto
      * @return bool True when the association was created (or already existed)
      * @throws \ksfraser\RelatedTo\Exception\RelatedRecordPersistenceException
+     * @BABOK Related: BR-RT-002
      * @since 1.0.0
      */
     public function relate(RelatedRecordDto $dto): bool;
@@ -37,6 +39,7 @@ interface RelatedRecordRepositoryInterface
      * @param string|null $linkRole
      * @return bool True when a row was removed
      * @throws \ksfraser\RelatedTo\Exception\RelatedRecordPersistenceException
+     * @BABOK Related: BR-RT-002
      * @since 1.0.0
      */
     public function unrelate($lhsType, $lhsId, $rhsType, $rhsId, $linkRole = null): bool;
@@ -47,6 +50,7 @@ interface RelatedRecordRepositoryInterface
      * @param RelatedQueryDto $query
      * @return RelatedRecordDto[]
      * @throws \ksfraser\RelatedTo\Exception\RelatedRecordPersistenceException
+     * @BABOK Related: BR-RT-002
      * @since 1.0.0
      */
     public function relatedTo(RelatedQueryDto $query): array;
@@ -59,6 +63,7 @@ interface RelatedRecordRepositoryInterface
      * @param string|null $lhsType Filter by context type
      * @return RelatedRecordDto[]
      * @throws \ksfraser\RelatedTo\Exception\RelatedRecordPersistenceException
+     * @BABOK Related: BR-RT-002
      * @since 1.0.0
      */
     public function relatedBy($rhsType, $rhsId, $lhsType = null): array;
@@ -74,6 +79,7 @@ interface RelatedRecordRepositoryInterface
      * @param string|null $otherType Filter by the other record's type
      * @return RelatedRecordDto[] Normalized with given record as lhs
      * @throws \ksfraser\RelatedTo\Exception\RelatedRecordPersistenceException
+     * @BABOK Related: BR-RT-002
      * @since 1.0.0
      */
     public function relatedSymmetric($type, $id, $otherType = null): array;
@@ -88,6 +94,7 @@ interface RelatedRecordRepositoryInterface
      * @param string|null $linkRole
      * @return bool
      * @throws \ksfraser\RelatedTo\Exception\RelatedRecordPersistenceException
+     * @BABOK Related: BR-RT-002
      * @since 1.0.0
      */
     public function isRelated($lhsType, $lhsId, $rhsType, $rhsId, $linkRole = null): bool;

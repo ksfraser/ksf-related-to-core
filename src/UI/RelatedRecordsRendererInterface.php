@@ -13,6 +13,7 @@ use ksfraser\RelatedTo\DTO\RelatedRecordDto;
  * collapsible (twisty) section headers, e.g. for a Customer: Notes,
  * Opportunities, Contacts, Meetings — each type gets its own table.
  *
+ * @BABOK Related: BR-RT-005
  * @since 1.0.0
  */
 interface RelatedRecordsRendererInterface
@@ -28,6 +29,7 @@ interface RelatedRecordsRendererInterface
      * @param RelatedRecordDto[] $related All related records (pre-fetched)
      * @param array           $options  Renderer-specific options (CSS classes, labels, etc.)
      * @return string HTML
+     * @BABOK Related: BR-RT-005
      * @since 1.0.0
      */
     public function renderRelatedRecords(
