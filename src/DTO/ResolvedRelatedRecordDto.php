@@ -19,6 +19,7 @@ use ksfraser\RelatedTo\DTO\RelatedRecordDto;
  * override labels (setLabel()/setLabels()) or fields (setField()/setFields())
  * before calling render()/toHtml()/toHtmlA()/toTd().
  *
+ * @BABOK Related: BR-RT-007
  * @package ksfraser\RelatedTo\DTO
  * @since   1.1.0
  */
@@ -40,6 +41,7 @@ abstract class ResolvedRelatedRecordDto
      * @param RelatedRecordDto $dto     The underlying persistence record
      * @param array            $fields  Resolved display fields
      * @param array            $labels  Per-field display labels
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function __construct(RelatedRecordDto $dto, array $fields = array(), array $labels = array())
@@ -51,6 +53,7 @@ abstract class ResolvedRelatedRecordDto
 
     /**
      * @return RelatedRecordDto
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function getDto()
@@ -62,6 +65,7 @@ abstract class ResolvedRelatedRecordDto
      * @param string $field
      * @param mixed  $value
      * @return $this
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function setField($field, $value)
@@ -74,6 +78,7 @@ abstract class ResolvedRelatedRecordDto
     /**
      * @param array $fields
      * @return $this
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function setFields(array $fields)
@@ -86,6 +91,7 @@ abstract class ResolvedRelatedRecordDto
     /**
      * @param string $field
      * @return mixed|null
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function getField($field)
@@ -95,6 +101,7 @@ abstract class ResolvedRelatedRecordDto
 
     /**
      * @return array<string, mixed>
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function getFields()
@@ -106,6 +113,7 @@ abstract class ResolvedRelatedRecordDto
      * @param string $field
      * @param string $label
      * @return $this
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function setLabel($field, $label)
@@ -118,6 +126,7 @@ abstract class ResolvedRelatedRecordDto
     /**
      * @param array $labels
      * @return $this
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function setLabels(array $labels)
@@ -130,6 +139,7 @@ abstract class ResolvedRelatedRecordDto
     /**
      * @param string $field
      * @return string
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function getLabel($field)
@@ -139,6 +149,7 @@ abstract class ResolvedRelatedRecordDto
 
     /**
      * @return array<string, string>
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function getLabels()
@@ -149,6 +160,7 @@ abstract class ResolvedRelatedRecordDto
     /**
      * @param string $url
      * @return $this
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function setUrl($url)
@@ -160,6 +172,7 @@ abstract class ResolvedRelatedRecordDto
 
     /**
      * @return string
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function getUrl()
@@ -169,6 +182,7 @@ abstract class ResolvedRelatedRecordDto
 
     /**
      * @return array<string, mixed>
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function toArray()
@@ -184,6 +198,7 @@ abstract class ResolvedRelatedRecordDto
      * Plain-text representation.
      *
      * @return string
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     abstract public function toString();
@@ -192,6 +207,7 @@ abstract class ResolvedRelatedRecordDto
      * HTML-ready representation (already escaped where appropriate).
      *
      * @return string
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     abstract public function toHtml();
@@ -200,6 +216,7 @@ abstract class ResolvedRelatedRecordDto
      * Wrap toHtml() in an anchor tag.
      *
      * @return string
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function toHtmlA()
@@ -212,6 +229,7 @@ abstract class ResolvedRelatedRecordDto
      * Wrap toHtml() in a table cell.
      *
      * @return string
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function toTd()
@@ -223,6 +241,7 @@ abstract class ResolvedRelatedRecordDto
      * Alias for toTd(), convenient for renderer consumption.
      *
      * @return string
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function render()

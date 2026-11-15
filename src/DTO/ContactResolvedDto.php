@@ -11,6 +11,7 @@ use ksfraser\RelatedTo\DTO\RelatedRecordDto;
  * (Contact::getDisplayName()), optionally suffixed with the contact-relation
  * index in parentheses. Consuming modules may override labels/fields.
  *
+ * @BABOK Related: BR-RT-007
  * @package ksfraser\RelatedTo\DTO
  * @since   1.1.0
  */
@@ -22,6 +23,7 @@ class ContactResolvedDto extends ResolvedRelatedRecordDto
      * @param string|null      $lastName     Person second name
      * @param int|null         $contactIndex Contact-relation index (optional suffix)
      * @param array            $labels       Optional per-field label overrides
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function __construct(

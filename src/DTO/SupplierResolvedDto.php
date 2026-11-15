@@ -10,6 +10,7 @@ use ksfraser\RelatedTo\DTO\RelatedRecordDto;
  * Resolved supplier record. Default display is the supplier name with the
  * supplier id as a secondary field.
  *
+ * @BABOK Related: BR-RT-007
  * @package ksfraser\RelatedTo\DTO
  * @since   1.1.0
  */
@@ -20,6 +21,7 @@ class SupplierResolvedDto extends ResolvedRelatedRecordDto
      * @param string|null      $name        Supplier name
      * @param string|null      $supplierId  Supplier id
      * @param array            $labels      Optional per-field label overrides
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function __construct(RelatedRecordDto $dto, $name = null, $supplierId = null, array $labels = array())
@@ -37,6 +39,11 @@ class SupplierResolvedDto extends ResolvedRelatedRecordDto
         parent::__construct($dto, array_merge($defaults, $fields), array_merge($defaults, $labels));
     }
 
+    /**
+     * @return string
+     * @BABOK Related: BR-RT-007
+     * @since 1.1.0
+     */
     public function toString()
     {
         $name = (string) $this->getField('name');
@@ -44,6 +51,11 @@ class SupplierResolvedDto extends ResolvedRelatedRecordDto
         return $id !== '' ? $name . ' (' . $id . ')' : $name;
     }
 
+    /**
+     * @return string
+     * @BABOK Related: BR-RT-007
+     * @since 1.1.0
+     */
     public function toHtml()
     {
         return htmlspecialchars($this->toString(), ENT_QUOTES, 'UTF-8');

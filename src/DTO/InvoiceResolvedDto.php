@@ -11,6 +11,7 @@ use ksfraser\RelatedTo\DTO\RelatedRecordDto;
  * with an optional reference field. Invoice number is stored in the
  * 'invoiceNo' field; 'reference' is the free-form reference.
  *
+ * @BABOK Related: BR-RT-007
  * @package ksfraser\RelatedTo\DTO
  * @since   1.1.0
  */
@@ -21,6 +22,7 @@ class InvoiceResolvedDto extends ResolvedRelatedRecordDto
      * @param string|null      $invoiceNo Invoice number
      * @param string|null      $reference Free-form reference
      * @param array            $labels   Optional per-field label overrides
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function __construct(RelatedRecordDto $dto, $invoiceNo = null, $reference = null, array $labels = array())
@@ -38,6 +40,11 @@ class InvoiceResolvedDto extends ResolvedRelatedRecordDto
         parent::__construct($dto, array_merge($defaults, $fields), array_merge($defaults, $labels));
     }
 
+    /**
+     * @return string
+     * @BABOK Related: BR-RT-007
+     * @since 1.1.0
+     */
     public function toString()
     {
         $inv = (string) $this->getField('invoiceNo');
@@ -52,6 +59,11 @@ class InvoiceResolvedDto extends ResolvedRelatedRecordDto
         return implode(' / ', $parts);
     }
 
+    /**
+     * @return string
+     * @BABOK Related: BR-RT-007
+     * @since 1.1.0
+     */
     public function toHtml()
     {
         return htmlspecialchars($this->toString(), ENT_QUOTES, 'UTF-8');

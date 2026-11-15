@@ -7,6 +7,7 @@ namespace ksfraser\RelatedTo\DTO;
 /**
  * Search criteria for "what is related to this record?"
  *
+ * @BABOK Related: BR-RT-001, BR-RT-003
  * @since 1.0.0
  */
 final class RelatedQueryDto
@@ -32,6 +33,7 @@ final class RelatedQueryDto
      * @param string|null $rhsType
      * @param int|null $limit
      * @param int|null $offset
+     * @BABOK Related: BR-RT-003
      * @since 1.0.0
      */
     public function __construct(
@@ -50,6 +52,7 @@ final class RelatedQueryDto
 
     /**
      * @return array
+     * @BABOK Related: BR-RT-003
      * @since 1.0.0
      */
     public function toArray()
@@ -66,6 +69,7 @@ final class RelatedQueryDto
     /**
      * @param array $data
      * @return self
+     * @BABOK Related: BR-RT-003
      * @since 1.0.0
      */
     public static function fromArray(array $data)

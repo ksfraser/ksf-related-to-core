@@ -10,6 +10,7 @@ use ksfraser\RelatedTo\DTO\RelatedRecordDto;
  * Resolved project record. Default display is the project name with the
  * project id as a secondary field.
  *
+ * @BABOK Related: BR-RT-007
  * @package ksfraser\RelatedTo\DTO
  * @since   1.1.0
  */
@@ -20,6 +21,7 @@ class ProjectResolvedDto extends ResolvedRelatedRecordDto
      * @param string|null      $name     Project name
      * @param string|null      $projectId Project id
      * @param array            $labels   Optional per-field label overrides
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function __construct(RelatedRecordDto $dto, $name = null, $projectId = null, array $labels = array())
@@ -35,6 +37,11 @@ class ProjectResolvedDto extends ResolvedRelatedRecordDto
         parent::__construct($dto, array_merge($defaults, $fields), array_merge($defaults, $labels));
     }
 
+    /**
+     * @return string
+     * @BABOK Related: BR-RT-007
+     * @since 1.1.0
+     */
     public function toString()
     {
         $name = (string) $this->getField('name');
@@ -42,6 +49,11 @@ class ProjectResolvedDto extends ResolvedRelatedRecordDto
         return $id !== '' ? $name . ' (' . $id . ')' : $name;
     }
 
+    /**
+     * @return string
+     * @BABOK Related: BR-RT-007
+     * @since 1.1.0
+     */
     public function toHtml()
     {
         return htmlspecialchars($this->toString(), ENT_QUOTES, 'UTF-8');

@@ -9,6 +9,7 @@ use ksfraser\RelatedTo\DTO\RelatedRecordDto;
 /**
  * Resolved attachment record. Default display is the attachment name.
  *
+ * @BABOK Related: BR-RT-007
  * @package ksfraser\RelatedTo\DTO
  * @since   1.1.0
  */
@@ -18,6 +19,7 @@ class AttachmentResolvedDto extends ResolvedRelatedRecordDto
      * @param RelatedRecordDto $dto   The underlying persistence record
      * @param string|null      $name  Attachment name
      * @param array            $labels Optional per-field label overrides
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function __construct(RelatedRecordDto $dto, $name = null, array $labels = array())
@@ -27,11 +29,21 @@ class AttachmentResolvedDto extends ResolvedRelatedRecordDto
         parent::__construct($dto, array_merge($defaults, $fields), array_merge($defaults, $labels));
     }
 
+    /**
+     * @return string
+     * @BABOK Related: BR-RT-007
+     * @since 1.1.0
+     */
     public function toString()
     {
         return (string) $this->getField('name');
     }
 
+    /**
+     * @return string
+     * @BABOK Related: BR-RT-007
+     * @since 1.1.0
+     */
     public function toHtml()
     {
         return htmlspecialchars((string) $this->getField('name'), ENT_QUOTES, 'UTF-8');

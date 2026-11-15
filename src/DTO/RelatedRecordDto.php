@@ -10,6 +10,7 @@ namespace ksfraser\RelatedTo\DTO;
  * lhs = the record being viewed (the context), rhs = the related record.
  * link_role describes WHY they are related (e.g. regarding, with, document).
  *
+ * @BABOK Related: BR-RT-001, BR-RT-003
  * @since 1.0.0
  */
 final class RelatedRecordDto
@@ -35,6 +36,7 @@ final class RelatedRecordDto
      * @param string $rhsType
      * @param string|int $rhsId
      * @param string|null $linkRole
+     * @BABOK Related: BR-RT-003
      * @since 1.0.0
      */
     public function __construct(
@@ -53,6 +55,7 @@ final class RelatedRecordDto
 
     /**
      * @return array
+     * @BABOK Related: BR-RT-003
      * @since 1.0.0
      */
     public function toArray()
@@ -69,6 +72,7 @@ final class RelatedRecordDto
     /**
      * @param array $data
      * @return self
+     * @BABOK Related: BR-RT-003
      * @since 1.0.0
      */
     public static function fromArray(array $data)

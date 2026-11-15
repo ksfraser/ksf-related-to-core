@@ -16,6 +16,7 @@ use ksfraser\RelatedTo\DTO\RelatedRecordDto;
  * Border rendering is opt-in via the `table_border` option; when enabled the
  * table, th, and td cells all receive 1px borders.
  *
+ * @BABOK Related: BR-RT-005
  * @since 1.0.1
  */
 class DefaultRelatedRecordsRenderer implements RelatedRecordsRendererInterface
@@ -48,6 +49,7 @@ class DefaultRelatedRecordsRenderer implements RelatedRecordsRendererInterface
      *   type_labels (array), label_resolver (callable),
      *   type_label_resolver (callable), url_resolver (callable),
      *   remove_resolver (callable), escape (callable), translate (callable)
+     * @BABOK Related: BR-RT-005
      * @since 1.0.1
      */
     public function __construct(array $options = array())
@@ -87,6 +89,7 @@ class DefaultRelatedRecordsRenderer implements RelatedRecordsRendererInterface
 
     /**
      * {@inheritdoc}
+     * @BABOK Related: BR-RT-005
      * @since 1.0.1
      */
     public function renderRelatedRecords(
@@ -114,7 +117,7 @@ class DefaultRelatedRecordsRenderer implements RelatedRecordsRendererInterface
         }
 
         if (empty($groups)) {
-            $msg = $this->esc($this->translate('No related records.'));
+            $msg = $this->esc(call_user_func($this->translate, 'No related records.'));
             return '<p class="' . $msg . '">' . $msg . '</p>';
         }
 
@@ -147,8 +150,8 @@ class DefaultRelatedRecordsRenderer implements RelatedRecordsRendererInterface
             }
             $html .= '<table class="' . $this->esc($tableClasses) . '">';
             $html .= '<thead><tr>';
-            $html .= '<th>' . $this->esc($this->translate('Record')) . '</th>';
-            $html .= '<th>' . $this->esc($this->translate('Role')) . '</th>';
+            $html .= '<th>' . $this->esc(call_user_func($this->translate, 'Record')) . '</th>';
+            $html .= '<th>' . $this->esc(call_user_func($this->translate, 'Role')) . '</th>';
             $html .= '<th></th>';
             $html .= '</tr></thead>';
             $html .= '<tbody>';
@@ -156,7 +159,7 @@ class DefaultRelatedRecordsRenderer implements RelatedRecordsRendererInterface
             foreach ($records as $record) {
                 $label = (string) call_user_func($this->labelResolver, $record->rhsType, $record->rhsId);
                 $url = (string) call_user_func($this->urlResolver, $record->rhsType, $record->rhsId);
-                $role = $record->linkRole !== null ? $record->linkRole : $this->translate('reference');
+                $role = $record->linkRole !== null ? $record->linkRole : call_user_func($this->translate, 'reference');
 
                 $html .= '<tr>';
                 $html .= '<td>';
@@ -225,6 +228,11 @@ class DefaultRelatedRecordsRenderer implements RelatedRecordsRendererInterface
             return _( $value );
         }
         return (string) $value;
+    }
+
+    private function defaultRemoveResolver($record, $lhsId)
+    {
+        return $record->linkRole !== null ? $record->linkRole : 'Remove';
     }
 
     private function esc($value)

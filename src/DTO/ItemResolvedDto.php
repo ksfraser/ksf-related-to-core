@@ -10,6 +10,7 @@ use ksfraser\RelatedTo\DTO\RelatedRecordDto;
  * Resolved item record. Default display is the item code with an optional
  * description.
  *
+ * @BABOK Related: BR-RT-007
  * @package ksfraser\RelatedTo\DTO
  * @since   1.1.0
  */
@@ -20,6 +21,7 @@ class ItemResolvedDto extends ResolvedRelatedRecordDto
      * @param string|null      $stockId    Item code / stock id
      * @param string|null      $description Item description
      * @param array            $labels     Optional per-field label overrides
+     * @BABOK Related: BR-RT-007
      * @since 1.1.0
      */
     public function __construct(RelatedRecordDto $dto, $stockId = null, $description = null, array $labels = array())
@@ -37,6 +39,11 @@ class ItemResolvedDto extends ResolvedRelatedRecordDto
         parent::__construct($dto, array_merge($defaults, $fields), array_merge($defaults, $labels));
     }
 
+    /**
+     * @return string
+     * @BABOK Related: BR-RT-007
+     * @since 1.1.0
+     */
     public function toString()
     {
         $code = (string) $this->getField('stockId');
@@ -44,6 +51,11 @@ class ItemResolvedDto extends ResolvedRelatedRecordDto
         return $desc !== '' ? $code . ' — ' . $desc : $code;
     }
 
+    /**
+     * @return string
+     * @BABOK Related: BR-RT-007
+     * @since 1.1.0
+     */
     public function toHtml()
     {
         return htmlspecialchars($this->toString(), ENT_QUOTES, 'UTF-8');
